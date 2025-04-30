@@ -3,6 +3,9 @@ import { Link } from 'react-router-dom';
 import '../styles/Home.css';
 
 const Home = () => {
+  // Get the base URL from the current window location
+  const baseUrl = window.location.origin;
+  
   const skills = [
     {
       title: "Backend Development",
@@ -31,7 +34,7 @@ const Home = () => {
   ];
 
   return (
-    <div className="page-container">
+    <div className="home-container">
       <div className="hero-section">
         <h1>Hi, I'm Bhimesh Patil</h1>
         <p className="subtitle">Java Developer & Software Technology Student</p>
@@ -49,6 +52,10 @@ const Home = () => {
             <i className="fas fa-code"></i>
             View Projects
           </Link>
+          <a href={`${baseUrl}/resume.pdf`} target="_blank" rel="noopener noreferrer" className="btn btn-secondary">
+            <i className="fas fa-file-pdf"></i>
+            View Resume
+          </a>
         </div>
       </div>
 

@@ -245,20 +245,20 @@ p { font-size: clamp(1rem, 2vw, 1.125rem); }
 /* Dark mode scrollbar styles */
 [data-theme='dark']::-webkit-scrollbar {
   width: 10px;
-}
+  }
 
 [data-theme='dark']::-webkit-scrollbar-track {
   background: #000000;
-}
+  }
 
 [data-theme='dark']::-webkit-scrollbar-thumb {
   background: #333333;
   border-radius: 5px;
-}
+  }
 
 [data-theme='dark']::-webkit-scrollbar-thumb:hover {
   background: #444444;
-}
+  }
 
 /* Firefox */
 [data-theme='dark'] {

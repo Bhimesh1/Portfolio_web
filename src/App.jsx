@@ -28,12 +28,12 @@ function App() {
       <div className="app-wrapper">
         <Navbar toggleTheme={toggleTheme} isDarkMode={isDarkMode} />
         <main className="main-content">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/projects" element={<Projects />} />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/projects" element={<Projects />} />
             <Route path="/experience" element={<Experience />} />
-          </Routes>
+        </Routes>
         </main>
         <Footer />
       </div>
