@@ -2,7 +2,7 @@
   width: 100%;
   min-height: 100vh;
   padding-top: 80px; /* Height of navbar */
-  background: #000000;
+  background: var(--bg-primary);
 }
 
 .hero-section {
@@ -10,7 +10,7 @@
   text-align: center;
   max-width: 800px;
   margin: 0 auto;
-  background: #000000;
+  background: var(--bg-primary);
 }
 
 .hero-section h1 {
