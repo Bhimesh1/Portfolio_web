@@ -321,7 +321,17 @@
   }
 
   .contact-content {
+    grid-template-columns: 1fr;
     padding: 0 1rem 3rem;
+    gap: 2rem;
+  }
+
+  .contact-text {
+    text-align: center;
+  }
+
+  .contact-highlights {
+    align-items: center;
   }
 
   .featured-section h2 {
