@@ -41,6 +41,9 @@ const Footer = () => {
         <p className="copyright">
           © {new Date().getFullYear()} Bhimesh Patil. All rights reserved.
         </p>
+        <p className="privacy-notice">
+          This site uses basic location analytics for improvement purposes. No personal data stored.
+        </p>
       </div>
     </footer>
   );

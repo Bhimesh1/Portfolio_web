@@ -1,0 +1,28 @@
+.visitor-counter {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background-color: var(--bg-secondary);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-light);
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  transition: var(--transition);
+}
+
+.visitor-counter i {
+  color: var(--primary);
+}
+
+.visitor-counter:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+}
+
+@media (max-width: 768px) {
+  .visitor-counter {
+    padding: 0.375rem 0.75rem;
+    font-size: 0.75rem;
+  }
+} 

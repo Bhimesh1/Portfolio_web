@@ -7,8 +7,10 @@ import About from './pages/About';
 import Projects from './pages/Projects';
 import Experience from './pages/Experience';
 import { trackVisitor } from './utils/visitorTracker';
+import ScrollToTopOnMount from './components/ScrollToTopOnMount';
 
-function App() {
+// Wrapper component to use hooks
+const AppContent = () => {
   const [isDarkMode, setIsDarkMode] = useState(() => {
     const savedTheme = localStorage.getItem('theme');
     // Default to dark mode if no theme is saved
@@ -30,19 +32,27 @@ function App() {
   };
 
   return (
-    <Router>
-      <div className="app-wrapper">
-        <Navbar toggleTheme={toggleTheme} isDarkMode={isDarkMode} />
-        <main className="main-content">
+    <div className="app-wrapper">
+      <Navbar toggleTheme={toggleTheme} isDarkMode={isDarkMode} />
+      <main className="main-content">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/projects" element={<Projects />} />
-            <Route path="/experience" element={<Experience />} />
+          <Route path="/experience" element={<Experience />} />
         </Routes>
-        </main>
-        <Footer />
-      </div>
+      </main>
+      <Footer />
+    </div>
+  );
+};
+
+// Main App component
+function App() {
+  return (
+    <Router>
+      <ScrollToTopOnMount />
+      <AppContent />
     </Router>
   );
 }

@@ -20,16 +20,27 @@ const getVisitorInfo = async () => {
   }
 };
 
+// Function to update visitor count
+const updateVisitorCount = () => {
+  const currentCount = parseInt(localStorage.getItem('visitorCount') || '0');
+  const newCount = currentCount + 1;
+  localStorage.setItem('visitorCount', newCount.toString());
+  return newCount;
+};
+
 // Function to send visitor info to Discord
-const sendToDiscord = async (visitorInfo) => {
+const sendToDiscord = async (visitorInfo, count) => {
   if (!visitorInfo) return;
 
   const message = {
-    content: `🌍 New Portfolio Visitor!\n` +
-      `📍 Location: ${visitorInfo.city}, ${visitorInfo.country}\n` +
-      `⏰ Time: ${visitorInfo.timestamp}\n` +
-      `🌐 Region: ${visitorInfo.region}\n` +
-      `🕒 Timezone: ${visitorInfo.timezone}`
+    content: `____________________________________________________________________\n` +
+    `____________________________________________________________________\n` +
+    `🌍 New Profile Visitor!\n` +
+    `👥 Visitor: ${count}\n` +    
+    `📍 Location:-------${visitorInfo.city}, ${visitorInfo.country}\n` +
+    `⏰ Time:-----------${visitorInfo.timestamp}\n` +
+    `🌐 Region:---------${visitorInfo.region}\n` +
+    `🕒 Timezone:------${visitorInfo.timezone}`
   };
 
   try {
@@ -48,5 +59,6 @@ const sendToDiscord = async (visitorInfo) => {
 // Main function to track visitor
 export const trackVisitor = async () => {
   const visitorInfo = await getVisitorInfo();
-  await sendToDiscord(visitorInfo);
+  const count = updateVisitorCount();
+  await sendToDiscord(visitorInfo, count);
 }; 
