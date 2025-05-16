@@ -5,7 +5,7 @@ import '../styles/Home.css';
 const Home = () => {
   // Get the base URL from the current window location
   const baseUrl = window.location.origin;
-  
+
   const skills = [
     {
       title: "Backend Development",
@@ -55,7 +55,7 @@ const Home = () => {
           <a href={`${baseUrl}/resume.pdf`} target="_blank" rel="noopener noreferrer" className="btn btn-secondary">
             <i className="fas fa-file-pdf"></i>
             View Resume
-          </a>
+            </a>
         </div>
       </div>
 

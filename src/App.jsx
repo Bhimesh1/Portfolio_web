@@ -6,6 +6,7 @@ import Home from './pages/Home';
 import About from './pages/About';
 import Projects from './pages/Projects';
 import Experience from './pages/Experience';
+import { trackVisitor } from './utils/visitorTracker';
 
 function App() {
   const [isDarkMode, setIsDarkMode] = useState(() => {
@@ -18,6 +19,11 @@ function App() {
     document.documentElement.setAttribute('data-theme', isDarkMode ? 'dark' : 'light');
     localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
   }, [isDarkMode]);
+
+  // Track visitor when the app loads
+  useEffect(() => {
+    trackVisitor();
+  }, []);
 
   const toggleTheme = () => {
     setIsDarkMode(prev => !prev);
