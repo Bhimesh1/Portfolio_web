@@ -1,6 +1,5 @@
 import React from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
-import VisitorCounter from './VisitorCounter';
 import '../styles/Navbar.css';
 
 const Navbar = ({ toggleTheme, isDarkMode }) => {
@@ -19,7 +18,6 @@ const Navbar = ({ toggleTheme, isDarkMode }) => {
         </NavLink>
         
         <div className="nav-links">
-          <VisitorCounter />
           <NavLink 
             to="/" 
             className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}
