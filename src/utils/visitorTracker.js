@@ -1,5 +1,5 @@
-// Discord webhook URL - Updated to use discord.com instead of discordapp.com
-const DISCORD_WEBHOOK_URL = 'https://discord.com/api/webhooks/1399864345613307925/nX4NJiBruJvhrDcaC4jvNNLVUfN3q0XDJEcGEp7YZOB4xnxA9JLFBs_pTKmQ24lG4ZO8';
+// Discord webhook URL from environment variable
+const DISCORD_WEBHOOK_URL = import.meta.env.VITE_DISCORD_WEBHOOK_URL;
 
 // Function to get visitor information
 const getVisitorInfo = async () => {
@@ -53,6 +53,12 @@ const sendToDiscord = async (visitorInfo, count) => {
     return;
   }
 
+  // Check if webhook URL is available
+  if (!DISCORD_WEBHOOK_URL) {
+    console.warn('Discord webhook URL not configured. Skipping Discord notification.');
+    return;
+  }
+
   const message = {
     content: `____________________________________________________________________\n` +
     `____________________________________________________________________\n` +
@@ -83,7 +89,7 @@ const sendToDiscord = async (visitorInfo, count) => {
     console.log('Successfully sent to Discord!');
   } catch (error) {
     console.error('Error sending to Discord:', error);
-    console.error('Webhook URL:', DISCORD_WEBHOOK_URL);
+    console.error('Webhook URL configured:', !!DISCORD_WEBHOOK_URL);
   }
 };
 
