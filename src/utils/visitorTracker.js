@@ -1,22 +1,39 @@
-// Discord webhook URL
-const DISCORD_WEBHOOK_URL = 'https://discordapp.com/api/webhooks/1399862439704793098/I_R0uXIDtOe3ENqkU_vNyuyb8b0KUGjdOEy5bI_tZQQQTaZkC7ZItrA4UnBiIfV4OynO';
+// Discord webhook URL - Updated to use discord.com instead of discordapp.com
+const DISCORD_WEBHOOK_URL = 'https://discord.com/api/webhooks/1399864345613307925/nX4NJiBruJvhrDcaC4jvNNLVUfN3q0XDJEcGEp7YZOB4xnxA9JLFBs_pTKmQ24lG4ZO8';
 
 // Function to get visitor information
 const getVisitorInfo = async () => {
   try {
+    console.log('Fetching visitor info from ipapi.co...');
     const response = await fetch('https://ipapi.co/json/');
+    
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    
     const data = await response.json();
+    console.log('Visitor info received:', data);
+    
     return {
-      city: data.city,
-      country: data.country_name,
-      region: data.region,
-      ip: data.ip,
-      timezone: data.timezone,
+      city: data.city || 'Unknown',
+      country: data.country_name || 'Unknown',
+      region: data.region || 'Unknown',
+      ip: data.ip || 'Unknown',
+      timezone: data.timezone || 'Unknown',
       timestamp: new Date().toLocaleString()
     };
   } catch (error) {
     console.error('Error fetching visitor info:', error);
-    return null;
+    // Return a fallback object instead of null
+    return {
+      city: 'Unknown',
+      country: 'Unknown',
+      region: 'Unknown',
+      ip: 'Unknown',
+      timezone: 'Unknown',
+      timestamp: new Date().toLocaleString(),
+      error: error.message
+    };
   }
 };
 
@@ -25,12 +42,16 @@ const updateVisitorCount = () => {
   const currentCount = parseInt(localStorage.getItem('visitorCount') || '0');
   const newCount = currentCount + 1;
   localStorage.setItem('visitorCount', newCount.toString());
+  console.log('Visitor count updated:', newCount);
   return newCount;
 };
 
 // Function to send visitor info to Discord
 const sendToDiscord = async (visitorInfo, count) => {
-  if (!visitorInfo) return;
+  if (!visitorInfo) {
+    console.error('No visitor info to send to Discord');
+    return;
+  }
 
   const message = {
     content: `____________________________________________________________________\n` +
@@ -44,21 +65,38 @@ const sendToDiscord = async (visitorInfo, count) => {
   };
 
   try {
-    await fetch(DISCORD_WEBHOOK_URL, {
+    console.log('Sending to Discord webhook...');
+    console.log('Message content:', message.content);
+    
+    const response = await fetch(DISCORD_WEBHOOK_URL, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify(message)
     });
+
+    if (!response.ok) {
+      throw new Error(`Discord webhook error! status: ${response.status}`);
+    }
+
+    console.log('Successfully sent to Discord!');
   } catch (error) {
     console.error('Error sending to Discord:', error);
+    console.error('Webhook URL:', DISCORD_WEBHOOK_URL);
   }
 };
 
 // Main function to track visitor
 export const trackVisitor = async () => {
-  const visitorInfo = await getVisitorInfo();
-  const count = updateVisitorCount();
-  await sendToDiscord(visitorInfo, count);
+  console.log('Starting visitor tracking...');
+  
+  try {
+    const visitorInfo = await getVisitorInfo();
+    const count = updateVisitorCount();
+    await sendToDiscord(visitorInfo, count);
+    console.log('Visitor tracking completed successfully');
+  } catch (error) {
+    console.error('Error in trackVisitor:', error);
+  }
 }; 
