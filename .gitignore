@@ -11,6 +11,8 @@ node_modules
 dist
 dist-ssr
 *.local
+visitor-count.js
+visitor-count.json
 
 # Editor directories and files
 .vscode/*

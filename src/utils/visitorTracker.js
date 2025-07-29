@@ -1,5 +1,5 @@
 // Discord webhook URL
-const DISCORD_WEBHOOK_URL = 'https://discord.com/api/webhooks/1372868889922375680/MdFL80inkiDm_veKlO-e7ovXwd_kSKD8idYluu4IMkExJsVeAS4z1PB0fcTOafmD-K5W';
+const DISCORD_WEBHOOK_URL = 'https://discordapp.com/api/webhooks/1399862439704793098/I_R0uXIDtOe3ENqkU_vNyuyb8b0KUGjdOEy5bI_tZQQQTaZkC7ZItrA4UnBiIfV4OynO';
 
 // Function to get visitor information
 const getVisitorInfo = async () => {
