@@ -1,7 +1,11 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import '../styles/Projects.css';
 
 const Projects = () => {
+  // Get the base URL from the current window location
+  const baseUrl = window.location.origin;
+
   const projects = [
     {
       title: "Personal Finance Tracker",
@@ -74,7 +78,10 @@ const Projects = () => {
     <div className="page-container">
       <div className="page-header">
         <h1>Projects</h1>
-        <p className="subtitle">A showcase of my technical projects and implementations</p>
+        <p className="subtitle">What I’ve Built</p>
+        <p className="description">
+          A collection of projects where I applied backend development, full-stack engineering, cloud deployment, and blockchain concepts. Each project reflects hands-on problem solving, clean architecture, and practical implementation using real-world tools.
+        </p>
       </div>
 
       <div className="section">
@@ -107,9 +114,9 @@ const Projects = () => {
               </div>
 
               {project.isAvailable ? (
-                <a href={project.github} 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
+                <a href={project.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="github-link">
                   <i className="fab fa-github"></i>
                   View on GitHub

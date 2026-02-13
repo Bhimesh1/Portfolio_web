@@ -83,7 +83,10 @@ const Experience = () => {
     <div className="page-container">
       <div className="page-header">
         <h1>Experience</h1>
-        <p className="subtitle">My professional journey and contributions</p>
+        <p className="subtitle">My Professional Journey</p>
+        <p className="description">
+          An overview of my work as a software engineer, focusing on backend development, cloud systems, and secure applications. I have worked on microservices, blockchain-based platforms, data pipelines, and CI/CD automation, building reliable and scalable systems using modern technologies.
+        </p>
       </div>
 
       <div className="section">
@@ -94,7 +97,7 @@ const Experience = () => {
                 <h2>{exp.title}</h2>
                 <span className="role">{exp.role}</span>
               </div>
-              
+
               <div className="company-info">
                 <p className="company">
                   <i className="fas fa-building"></i>

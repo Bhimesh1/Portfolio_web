@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Home from './pages/Home';
-import About from './pages/About';
+
 import Projects from './pages/Projects';
 import Experience from './pages/Experience';
 import { trackVisitor } from './utils/visitorTracker';
@@ -13,8 +13,8 @@ import ScrollToTopOnMount from './components/ScrollToTopOnMount';
 const AppContent = () => {
   const [isDarkMode, setIsDarkMode] = useState(() => {
     const savedTheme = localStorage.getItem('theme');
-    // Default to dark mode if no theme is saved
-    return savedTheme ? savedTheme === 'dark' : true;
+    // Default to light mode if no theme is saved
+    return savedTheme ? savedTheme === 'dark' : false;
   });
 
   useEffect(() => {
@@ -37,7 +37,7 @@ const AppContent = () => {
       <main className="main-content">
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
+
           <Route path="/projects" element={<Projects />} />
           <Route path="/experience" element={<Experience />} />
         </Routes>

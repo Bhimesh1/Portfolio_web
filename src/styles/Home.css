@@ -1,7 +1,8 @@
 .home-container {
   width: 100%;
   min-height: 100vh;
-  padding-top: 80px; /* Height of navbar */
+  padding-top: 80px;
+  /* Height of navbar */
   background: var(--bg-primary);
 }
 
@@ -51,7 +52,7 @@
 
 .skills-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 2rem;
   max-width: 1200px;
   margin: 0 auto;
@@ -67,6 +68,7 @@
   transition: var(--transition);
   display: flex;
   flex-direction: column;
+  height: 100%;
 }
 
 .skill-card:hover {
@@ -144,7 +146,7 @@
 
 .contact-section {
   padding: 4rem 0 0 0;
-  background-color: var(--bg-primary);
+  background-color: var(--bg-secondary);
   margin: 0;
   width: 100%;
 }
@@ -376,7 +378,7 @@
 [data-theme='dark'] .featured-section,
 [data-theme='dark'] .contact-section,
 [data-theme='dark'] .contact-highlights {
-  background-color: #000000;
+  background-color: var(--bg-primary);
   color: #ffffff;
 }
 
@@ -424,4 +426,4 @@
   background-color: #111111;
   border: 1px solid #333333;
   color: #888888;
-} 
+}
