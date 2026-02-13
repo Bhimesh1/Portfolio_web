@@ -146,7 +146,7 @@
 
 .contact-section {
   padding: 4rem 0 0 0;
-  background-color: var(--bg-secondary);
+  background-color: var(--bg-primary);
   margin: 0;
   width: 100%;
 }
@@ -308,6 +308,44 @@
   font-size: 0.75rem;
 }
 
+/* Light Mode Specific Styles */
+[data-theme='light'] .contact-section {
+  background-color: var(--bg-secondary);
+}
+
+[data-theme='light'] .highlight-item {
+  background-color: var(--bg-primary);
+  border: 1px solid var(--border-light);
+}
+
+[data-theme='light'] .highlight-item i {
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+}
+
+[data-theme='light'] .contact-box {
+  background-color: var(--bg-primary);
+  border: 1px solid var(--border-light);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+[data-theme='light'] .contact-method {
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-light);
+}
+
+[data-theme='light'] .contact-method:hover {
+  background-color: var(--bg-tertiary);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+[data-theme='light'] .availability {
+  background-color: rgba(22, 163, 74, 0.1);
+  border: 1px solid rgba(22, 163, 74, 0.2);
+  color: #16a34a;
+}
+
+
 @media (max-width: 768px) {
   .hero-section {
     padding: 4rem 1rem 2rem;
@@ -378,7 +416,7 @@
 [data-theme='dark'] .featured-section,
 [data-theme='dark'] .contact-section,
 [data-theme='dark'] .contact-highlights {
-  background-color: var(--bg-primary);
+  background-color: #000000;
   color: #ffffff;
 }
 
